@@ -8,6 +8,8 @@ import connectors from '../assets/home/lotus-connectors.svg'
 import navigationRule from '../assets/home/navigation-rule.svg'
 import './App.css'
 
+const aboutHref = `${import.meta.env.BASE_URL}about/`
+
 const email = 'madisonblin05@gmail.com'
 
 const flowerWindows = [
@@ -15,7 +17,7 @@ const flowerWindows = [
   { x: 725, y: 404, width: 318, height: 182, crop: [-139.62, -342.47, 256.29, 634.39] },
   { x: 779, y: 660, width: 216, height: 211, crop: [-230.56, -419.1, 377.31, 547.2], label: 'resume.txt' },
   { x: 384, y: 326, width: 228, height: 244, crop: [-45.18, -219.05, 357.46, 475.14], label: 'projects.exe', href: '#projects' },
-  { x: 577, y: 213, width: 295, height: 165, crop: [-100.34, -264.42, 276.27, 699.75], label: 'aboutme.md', href: '#about' },
+  { x: 577, y: 213, width: 295, height: 165, crop: [-100.34, -264.42, 276.27, 699.75], label: 'aboutme.md', href: aboutHref },
 ]
 
 const markers = [
@@ -89,7 +91,7 @@ function App() {
     <div className="site" style={{ '--background-art': `url(${background})` }}>
       <main className="home">
         <nav className="navigation" aria-label="Main navigation">
-          <a href="#about">about me</a>
+          <a href={aboutHref}>about me</a>
           <a href="#projects">projects</a>
           <span>resume</span>
           <a href="#connect">connect</a>

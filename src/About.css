@@ -1,0 +1,396 @@
+.about-page {
+  background: #baac7b var(--about-background) center / cover no-repeat;
+  color: #65604d;
+  font-family: Prata, Georgia, serif;
+}
+
+.about-scroll {
+  height: 100svh;
+  overflow: hidden auto;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.about-scroll:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -4px;
+}
+
+.about-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  height: 100svh;
+  overflow: clip;
+}
+
+.about-scroll-track {
+  margin-top: -100svh;
+  pointer-events: none;
+}
+
+.about-scroll-stop {
+  height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.about-frame {
+  --u: min(calc(100vw / 1600), calc(100svh / 871));
+  position: relative;
+  isolation: isolate;
+  width: calc(1600 * var(--u));
+  height: calc(871 * var(--u));
+}
+
+.about-heading,
+.about-scroll-prompt {
+  position: absolute;
+  z-index: 2;
+  background: var(--about-texture) top left / calc(960 * var(--u)) calc(540 * var(--u));
+  background-clip: text;
+  color: #4d4524;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-heading {
+  top: calc(66 * var(--u));
+  left: calc(69 * var(--u));
+  font-size: calc(110 * var(--u));
+  line-height: 1.34;
+  font-weight: 400;
+}
+
+.about-heading span {
+  display: block;
+}
+
+.about-scroll-prompt {
+  top: calc(718 * var(--u));
+  left: calc(82 * var(--u));
+  font-size: calc(32 * var(--u));
+}
+
+.about-back {
+  position: absolute;
+  z-index: 3;
+  top: calc(765 * var(--u));
+  left: calc(30 * var(--u));
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: calc(96 * var(--u));
+  line-height: 1;
+  text-decoration: none;
+  text-shadow: 0 calc(4 * var(--u)) calc(4 * var(--u)) #0004;
+}
+
+.experience-orbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.orbit-lotus {
+  position: absolute;
+  inset: calc(152 * var(--u)) auto auto calc(412 * var(--u));
+  width: calc(776 * var(--u));
+  height: calc(846 * var(--u));
+  overflow: hidden;
+  filter: drop-shadow(0 calc(4 * var(--u)) calc(4 * var(--u)) #0004);
+}
+
+.orbit-lotus img {
+  position: absolute;
+  left: -2.45%;
+  top: calc(-257.27 * var(--u));
+  width: 105.03%;
+  height: calc(1154.62 * var(--u));
+}
+
+.orbit-lotus-front {
+  height: calc(322 * var(--u));
+  filter: none;
+  z-index: 1;
+}
+
+.orbit-ring {
+  position: absolute;
+  left: calc(415 * var(--u));
+  top: calc(172 * var(--u));
+  width: calc(770 * var(--u));
+  height: auto;
+}
+
+.orbit-piece {
+  position: absolute;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--y) * var(--u));
+}
+
+.orbit-labels {
+  position: absolute;
+  z-index: 2;
+  color: #fff5f5;
+  font-size: calc(24 * var(--u));
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.orbit-label {
+  transform: translate(var(--label-shift), -50%);
+}
+
+.orbit-leader {
+  width: calc(var(--width) * var(--u));
+  height: max(1px, var(--u));
+  transform: rotate(var(--angle));
+  transform-origin: left center;
+}
+
+.orbit-dot {
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: max(24px, calc(var(--size) * var(--u)));
+  height: max(24px, calc(var(--size) * var(--u)));
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.orbit-dot img {
+  width: calc(var(--size) * var(--u));
+  height: auto;
+}
+
+.orbit-dot:hover img,
+.orbit-dot:focus-visible img {
+  filter: drop-shadow(0 0 4px #fff6da);
+}
+
+.orbit-dot:focus-visible {
+  outline: 2px solid #514a2e;
+  outline-offset: 2px;
+}
+
+.experience-card {
+  --connector-lead: 220ms;
+  --opening-axis: calc(253 * var(--u));
+  --card-radius: calc(39 * var(--u));
+  position: absolute;
+  z-index: 2;
+  top: calc(196 * var(--u));
+  left: calc(1216 * var(--u));
+  width: calc(323 * var(--u));
+  font-family: Prompt, system-ui, sans-serif;
+}
+
+.experience-card-panel {
+  min-height: calc(513 * var(--u));
+  padding: calc(18 * var(--u)) calc(19 * var(--u)) calc(20 * var(--u)) calc(24 * var(--u));
+  border-radius: var(--card-radius);
+  background: rgb(255 255 255 / .45);
+}
+
+.experience-card header {
+  text-align: center;
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .experience-card-connector path {
+    stroke-dasharray: 1;
+    animation: experience-connector-draw 300ms ease-out both;
+  }
+
+  .experience-card-panel {
+    animation: experience-panel-open 360ms cubic-bezier(.2, .75, .25, 1) var(--connector-lead) backwards;
+  }
+
+  .experience-card-content {
+    animation: experience-copy-reveal 240ms ease-out calc(var(--connector-lead) + 160ms) backwards;
+  }
+
+  @keyframes experience-connector-draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes experience-panel-open {
+    from {
+      clip-path: inset(var(--opening-axis) 0 calc(100% - var(--opening-axis)) 0 round 2px);
+    }
+
+    to {
+      clip-path: inset(0 round var(--card-radius));
+    }
+  }
+
+  @keyframes experience-copy-reveal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+.experience-card h2 {
+  margin: 0 0 calc(1 * var(--u));
+  font-size: calc(24 * var(--u));
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.experience-card header p {
+  margin-inline: auto;
+  max-width: calc(258 * var(--u));
+  font-size: calc(20 * var(--u));
+}
+
+.experience-card-copy {
+  display: grid;
+  gap: calc(23 * var(--u));
+  margin-top: calc(20 * var(--u));
+  font-size: calc(15 * var(--u));
+  line-height: 1.53;
+  white-space: pre-line;
+}
+
+.experience-card-connector {
+  position: absolute;
+  top: calc(var(--opening-axis) - 135 * var(--u));
+  left: calc(-53 * var(--u));
+  width: calc(55 * var(--u));
+  overflow: visible;
+  fill: none;
+  stroke: #fff9da;
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+@media (max-width: 950px), (max-height: 560px) {
+  .about-frame {
+    --art-height: min(calc(100vw * .69), 38svh, 20rem);
+    --u: calc(var(--art-height) / 590);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto var(--art-height) auto minmax(0, 1fr);
+    align-items: start;
+    width: min(100%, 36rem);
+    height: 100%;
+    padding: .75rem 1rem 1rem;
+    gap: .45rem;
+  }
+
+  .about-heading,
+  .about-scroll-prompt,
+  .about-back,
+  .experience-card {
+    position: relative;
+    inset: auto;
+  }
+
+  .about-heading {
+    font-size: clamp(1.65rem, 5vw, 2.65rem);
+    line-height: 1.1;
+    align-self: center;
+  }
+
+  .about-heading span {
+    display: inline;
+  }
+
+  .about-back {
+    grid-area: 1 / 2;
+    font-size: 2rem;
+  }
+
+  .experience-orbit {
+    grid-area: 2 / 1 / 3 / -1;
+    inset: calc(-166 * var(--u)) auto auto 50%;
+    width: calc(1600 * var(--u));
+    height: var(--art-height);
+    transform: translateX(-50%);
+  }
+
+  .orbit-lotus {
+    height: calc(760 * var(--u));
+    clip-path: inset(0 0 calc(164 * var(--u)) 0);
+  }
+
+  .orbit-lotus-front {
+    height: calc(322 * var(--u));
+    clip-path: none;
+  }
+
+  .orbit-labels,
+  .experience-card-connector {
+    display: none;
+  }
+
+  .orbit-dot {
+    width: 32px;
+    height: 32px;
+  }
+
+  .orbit-dot img {
+    min-width: 9px;
+  }
+
+  .about-scroll-prompt {
+    grid-area: 3 / 1 / 4 / -1;
+    text-align: center;
+    font-size: .95rem;
+  }
+
+  .experience-card {
+    --connector-lead: 0ms;
+    --opening-axis: 50%;
+    --card-radius: 1.25rem;
+    grid-area: 4 / 1 / 5 / -1;
+    width: 100%;
+    max-height: 100%;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .experience-card-entry {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .experience-card-panel {
+    min-height: 0;
+    overflow: auto;
+    padding: .85rem 1rem;
+  }
+
+  .experience-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .experience-card header p {
+    max-width: none;
+    font-size: .9rem;
+    line-height: 1.25;
+  }
+
+  .experience-card-copy {
+    gap: .6rem;
+    margin-top: .75rem;
+    font-size: .875rem;
+    line-height: 1.4;
+  }
+}
