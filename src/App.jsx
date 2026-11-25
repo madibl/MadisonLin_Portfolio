@@ -117,7 +117,7 @@ function App() {
           <p>Connect with me:</p>
           <ul>
             <li><a href="https://github.com/madibl">GitHub</a></li>
-            <li>LinkedIn</li>
+            <li><a href="https://www.linkedin.com/in/madison-lin-51a947269/">LinkedIn</a></li>
             <li><a href={`mailto:${email}`}>{email}</a></li>
           </ul>
         </footer>
