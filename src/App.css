@@ -1,184 +1,387 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+.site {
+  container-type: inline-size;
+  min-height: 100svh;
+  background: #baac7b var(--background-art) center / cover no-repeat;
 }
 
-.hero {
+.home {
+  /* Scale the overlapping artwork from the 1600px desktop frame. */
+  --u: calc(100cqi / 1600);
   position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+  isolation: isolate;
+  min-height: max(100svh, calc(871 * var(--u)));
+  overflow: clip;
+  color: #000;
+  font-size: calc(16 * var(--u));
 }
 
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+.navigation {
+  position: absolute;
+  z-index: 4;
+  top: calc(38 * var(--u));
+  left: calc(895 * var(--u));
+  display: grid;
+  grid-template-columns: 176fr 146fr 128fr 128fr;
+  align-items: start;
+  width: calc(617 * var(--u));
+  height: calc(45 * var(--u));
+  padding-left: calc(39 * var(--u));
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
+.navigation-rule {
+  position: absolute;
+  inset: auto 0 0;
   width: 100%;
+  height: auto;
+  pointer-events: none;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+.home a {
+  text-decoration: none;
+}
+
+.home a:hover {
+  text-decoration: underline;
+}
+
+.lettering {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 0 calc(9 * var(--u)) #ffeaaa);
+}
+
+.lettering > img {
+  position: absolute;
+  left: 0;
+}
+
+.lettering-name {
+  top: 0;
+  left: calc(-39 * var(--u));
+  width: calc(775 * var(--u));
+  aspect-ratio: 775 / 308;
+  clip-path: inset(0 0 -4% 0);
+}
+
+.lettering-name img {
+  top: 0;
+  width: 100%;
+}
+
+.lettering-portfolio {
+  top: calc(671 * var(--u));
+  left: calc(887 * var(--u));
+  width: calc(625 * var(--u));
+  aspect-ratio: 625 / 175;
+  clip-path: inset(-5% 0 -4% 0);
+}
+
+.lettering-portfolio img {
+  top: -223.8%;
+  width: 124.64%;
+}
+
+.about,
+.leetcode,
+.contact {
+  position: absolute;
+  z-index: 2;
+  font: 400 calc(24 * var(--u)) / 1.2 'Pixelify Sans', ui-monospace, monospace;
+  color: #fff;
+}
+
+.about {
+  top: calc(348 * var(--u));
+  left: calc(94 * var(--u));
+  width: calc(160.3 * var(--u));
+  line-height: calc(20 * var(--u));
+  transform: rotate(.44deg);
+}
+
+.about p + p {
+  margin-top: calc(20 * var(--u));
+}
+
+.contact {
+  top: calc(605 * var(--u));
+  left: calc(94 * var(--u));
+  width: calc(290 * var(--u));
+  overflow-wrap: anywhere;
+}
+
+.leetcode {
+  top: calc(109 * var(--u));
+  left: calc(1140 * var(--u));
+  width: calc(335 * var(--u));
+}
+
+.leetcode > p:first-child {
+  padding-left: calc(6 * var(--u));
+}
+
+.leetcode-caption {
+  margin-top: calc(16 * var(--u));
+  text-align: right;
+}
+
+.heatmap {
+  position: relative;
+  height: calc(100 * var(--u));
+  margin-top: calc(7.2 * var(--u));
+}
+
+.heatmap-column {
+  position: absolute;
+  left: calc(var(--column) * var(--u));
+  display: grid;
+  gap: calc(3.1 * var(--u));
+}
+
+.heatmap-column span {
+  width: calc(12.438 * var(--u));
+  height: calc(11.628 * var(--u));
+  background: var(--cell, transparent);
+  opacity: .7;
+}
+
+.heatmap-column [data-level="0"] { --cell: #9e9565; }
+.heatmap-column [data-level="1"] { --cell: #cdbb84; }
+.heatmap-column [data-level="2"] { --cell: #e1cd90; }
+.heatmap-column [data-level="3"] { --cell: #eedca5; }
+.heatmap-column [data-level="4"] { --cell: #fff9da; }
+
+.heatmap-column :is([data-level="1"], [data-level="2"], [data-level="3"], [data-level="4"]) {
+  box-shadow: 0 0 calc(4 * var(--u)) var(--cell);
+}
+
+.flower-stage {
+  position: absolute;
+  top: calc(65 * var(--u));
+  left: calc(280 * var(--u));
+  width: calc(820 * var(--u));
+  height: calc(806 * var(--u));
+}
+
+.stage-item {
+  position: absolute;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--y) * var(--u));
+  width: calc(var(--w) * var(--u));
+  height: calc(var(--h) * var(--u));
+}
+
+.lotus-bitmap {
+  transform: rotate(.62deg);
+  filter: drop-shadow(0 0 calc(10 * var(--u)) #ffeaaaaa);
+}
+
+.marker {
+  border: max(1px, var(--u)) solid #fff5f5;
+  background: #e29c9654;
+}
+
+.coordinate,
+.flower-window {
+  font-size: calc(15 * var(--u));
+}
+
+.lotus-bitmap,
+.connector-lines,
+.marker,
+.coordinate {
+  pointer-events: none;
+}
+
+.flower-window {
+  display: block;
+}
+
+.window-pane {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  box-shadow: 0 calc(4 * var(--u)) calc(4 * var(--u)) #0004;
+}
+
+.window-pane::after {
+  position: absolute;
+  inset: 0;
+  border: max(1px, calc(3 * var(--u))) solid white;
+  content: '';
+}
+
+.window-pane-muted {
+  opacity: .75;
+}
+
+.window-pane img,
+.doodle img {
+  position: absolute;
+  max-width: none;
+}
+
+.window-label {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: calc(114 * var(--u));
+  height: calc(19 * var(--u));
+  background: white;
+  white-space: nowrap;
+}
+
+.doodle {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.doodle > span {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.cat {
+  top: calc(186.9 * var(--u));
+  left: calc(294.87 * var(--u));
+  width: calc(100.361 * var(--u));
+  height: calc(89.281 * var(--u));
+  transform: rotate(9.81deg);
+  filter: drop-shadow(0 0 calc(5 * var(--u)) #ffeaaa);
+}
+
+.cat img {
+  top: -41.33%;
+  left: -37.81%;
+  width: 181.64%;
+  height: 204.18%;
+}
+
+.doodle-flower {
+  width: calc(75.967 * var(--u));
+  height: calc(69.228 * var(--u));
+}
+
+.doodle-flower img {
+  top: -461.06%;
+  left: -84.68%;
+  width: 258.06%;
+  height: 566.37%;
+}
+
+.doodle-flower-upper {
+  top: calc(490.38 * var(--u));
+  left: calc(1120.73 * var(--u));
+  transform: rotate(-156.22deg);
+}
+
+.doodle-flower-lower {
+  top: calc(606.63 * var(--u));
+  left: calc(1370.41 * var(--u));
+  transform: rotate(31.04deg);
+}
+
+@media (max-width: 850px) {
+  .home {
+    --u: min(calc((100cqi - 2rem) / 820), .72px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+    width: min(100%, 40rem);
+    margin-inline: auto;
+    padding: 1rem 1rem 2rem;
+    font-size: .875rem;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  .navigation,
+  .about,
+  .flower-stage,
+  .leetcode,
+  .contact {
+    position: relative;
+    inset: auto;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    width: 100%;
+    height: auto;
+    min-height: 44px;
+    padding: 0;
+  }
+
+  .site-title {
+    display: grid;
+    justify-items: start;
+  }
+
+  .lettering {
+    position: relative;
+    inset: auto;
+  }
+
+  .lettering-name {
+    width: min(103%, 30rem);
+    margin-left: -9%;
+  }
+
+  .lettering-portfolio {
+    width: min(75%, 24rem);
+    margin: -2% 0 0 20%;
+  }
+
+  .about,
+  .leetcode,
+  .contact {
+    width: fit-content;
+    max-width: 100%;
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .about {
+    transform: none;
+  }
+
+  .about p + p {
+    margin-top: .25rem;
+  }
+
+  .flower-stage {
+    align-self: start;
+    justify-self: center;
+    isolation: isolate;
+    overflow: clip;
+  }
+
+  .window-label {
+    width: max-content;
+    height: auto;
+    padding: 1px 3px;
+    font-size: clamp(.625rem, 2vw, .875rem);
+  }
+
+  .leetcode {
+    --u: min(calc((100cqi - 2rem) / 335), 1px);
+    width: calc(335 * var(--u));
+  }
+
+  .cat {
+    top: clamp(8rem, 25vw, 14rem);
+    left: auto;
+    right: 1.5rem;
+    width: 3.75rem;
+    height: 3.336rem;
+  }
+
+  .doodle-flower {
+    display: none;
   }
 }
