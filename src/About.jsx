@@ -26,21 +26,47 @@ const experienceEntries = [
   {
     id: 'swe-intern-sdk',
     title: 'SWE Intern - SDK',
+    subtitle: 'GEHealthcare | May 2025 - May 2026',
+    paragraphs: [
+      'Worked as a SWE Intern at GE Healthcare on the MR Team, getting exposed to real world software engineering practices.',
+      'Developed and tested a C++-to-MATLAB binding layer used by researchers to access MR reconstruction algorithms.',
+      'Gained domain space knowledge in MR Physics by working with researchers and other engineers',
+      'Open-sourced and deployed the SDK, announced at ISMRM; ~100 downloads from our public GitHub.'
+    ],
     marker: [963, 210, dotUpper, 20],
   },
   {
     id: 'swe-intern-framework',
     title: 'SWE Intern - Framework',
+    subtitle: 'GEHealthcare | May 2026 - present',
+    paragraphs: [
+      'Own the end-to-end design and development of a C++ raw-to-ISMRMRD conversion framework that translates proprietary GE Scan Archive data into the vendor-neutral ISMRMRD standard while preserving data integrity.',
+      'Architect modular interfaces for real-time and offline execution, iterating based on feedback from the engineering team.'
+    ],
     marker: [807.5, 183.5, dotTop, 15],
   },
   {
     id: 'llm-research',
     title: 'LLM Research',
+    subtitle: 'UW Madison, Linguistic Justice Lab | Sept. 2023 - Jun. 2024',
+    paragraphs: [
+      'Worked in a lab aimed at finding and evaluating biases present within Spanish-English bilingual childrens books, using LLMs',
+      'Wrote 300+ multilingual NLI evaluation tests to detect and characterize bias in NLP models across languages.',
+      'Developed a Python data and evaluation pipeline to automate preprocessing, model execution, and analysis.',
+      'Presented methodology and findings at the 2024 Undergraduate Research Symposium.	'
+    ],
     marker: [468.5, 587.5, dotSide, 25],
   },
   {
-    id: 'it-technician',
-    title: 'IT Technician',
+    id: 'it-support',
+    title: 'IT Support',
+    subtitle: 'UW Madison, OVCR | Feb. 2024 - Oct. 2025',
+    paragraphs: [
+      'Worked as IT Support for faculty at UW Madison, troubleshooting tech problems, installing hardware and software, and squashing system vulnerabilities.',
+      'Communicated technical solutions clearly and effectively to customers, ensuring a positive customer experience for over 100 technical support tickets.',
+      'Trained and onboarded a new hire, mentoring them on troubleshooting procedures and ticketing workflows.',
+      'Earned a Certificate in Cybersecurity with ISC2.'
+    ],
     marker: [838, 733, dotFront, 30],
   },
 ]
